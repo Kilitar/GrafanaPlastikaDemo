@@ -22,15 +22,24 @@ Tento projekt ukazuje, jak Data Analyst pomocí propojení **telemetrie ze vstř
 ```bash
 docker compose up -d
 ```
-- **Grafana Dashboard:** [http://localhost:3000](http://localhost:3000) (login: `admin` / `admin`)
-  - *Cesta v menu:* Dashboards ➔ **Výroba Plastika** ➔ **PLASTIKA a.s. – Digital Shopfloor & Quality Monitoring**
-- **InfluxDB v2:** [http://localhost:8086](http://localhost:8086) (org: `plastika`, bucket: `production_metrics`)
+
+### 🔐 Přihlašovací údaje k webovým rozhraním:
+
+| Služba | URL | Uživatel | Heslo | Detaily |
+| :--- | :--- | :--- | :--- | :--- |
+| **Grafana** | [http://localhost:3000](http://localhost:3000) | `admin` | `admin` | Dashboards ➔ **Výroba Plastika** |
+| **InfluxDB v2** | [http://localhost:8086](http://localhost:8086) | `admin` | `adminpassword123` | Org: `plastika`, Bucket: `production_metrics` |
+
+*(API Token pro InfluxDB klienta: `plastika-super-secret-auth-token-12345`)*
+
+---
 
 ### 2. Spuštění generátoru výrobních dat (Live stream)
 ```bash
 .venv\Scripts\activate
 python data_generator.py
 ```
+*(Nebo jednoduše dvakrát klikněte na soubor **`start_demo.bat`**, který vše spustí a vygeneruje čerstvá data k aktuálnímu dni).*
 
 ### 3. Spuštění manažerského analytického vyhodnocení (Python + SQL + InfluxDB)
 ```bash
